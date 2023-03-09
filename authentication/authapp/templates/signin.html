@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <form method = 'post'>
-        {%csrf_token%}
-        {{form.as_p}}
-        <input type = "submit" value="submit">
-    </form>
-    <h3>don't have an account</h3><br>
-    <a href="{ % url 'signup' %}"> signup here</a>
+    <center>
+        <h3>Sign into your account</h3>
+        <form method = 'post'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type = "submit" value = "Login">
+        </form>
+        <h4>Dont have an account yet </h4><br>
+        <a href = "{% url 'signup' %}">Sign Up Here</a>
+    </center>   
 </body>
 </html>

@@ -15,6 +15,7 @@ class User(models.Model):
     email = models.EmailField(max_length = 20)
     gender = models.CharField(max_length = 15,choices = gender_choices, default='1')
     password = models.CharField(max_length = 20)
+    password_repeat = models.CharField(max_length = 20)
     def __str__(self):
        return self.first_name
     

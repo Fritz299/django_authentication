@@ -12,5 +12,16 @@ class UserRegistrationForm(forms.ModelForm):
         model = User
         widgets = {
             'password': forms.PasswordInput(),
+            'password_repeat': forms.PasswordInput(),
+
         }
         fields = "__all__"
+    def clean(self):
+        cleaned_data = super(UserRegistrationForm, self).clean()
+        password = cleaned_data.get("password")
+        password_repeat = cleaned_data.get("password_repeat")
+
+        if password != password_repeat:
+            raise forms.ValidationError(
+                "password and confirm_password does not match"
+            )

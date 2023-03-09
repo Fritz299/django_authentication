@@ -1,11 +1,9 @@
-from django.urls import path, include
-from django.contrib import admin
-from . import views
-from .forms import UserRegistrationForm, loginForm
+from django.urls import path
+from .views import home, signin, signup, signout
  
 urlpatterns = [
-    path("",views.home,),
-    path("home/signin",views.signin, ),
-    path("/home/signup",views.signup),
-    path("home/signout",views.signout, name = 'logout'),
+    path("",home, name="home"),
+    path("home/signin",signin, name="signin"),
+    path("home/signup",signup, name="signup"),
+    path("home/signout",signout, name = 'signout'),
 ]
